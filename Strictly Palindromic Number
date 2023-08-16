@@ -1,0 +1,39 @@
+class Solution {
+    public boolean isStrictlyPalindromic(int n) {
+        for(int i=2;i<=n-2;i++)
+        {
+            String PalindromeString=Convert(n,i);
+            if(!isPalindrome(PalindromeString))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public String Convert(int n,int m)
+    {
+        StringBuilder res=new StringBuilder();
+        while(n!=0)
+        {
+            int temp=n%m;
+            res=res.append(String.valueOf(temp));
+            n=n/m;
+        }
+        res.reverse();
+        return res.toString();
+    }
+    public boolean isPalindrome(String str)
+    {
+        int left=0,right=str.length()-1;
+        while(left<=right)
+        {
+            if(str.charAt(left)!=str.charAt(right))
+            {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
