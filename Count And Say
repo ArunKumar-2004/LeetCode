@@ -1,0 +1,28 @@
+class Solution {
+    public String countAndSay(int n) {    
+        if(n == 1)
+          return "1";
+        return helper(0, n, "1");
+    }
+    private String helper(int idx, int n, String s){
+      if(idx == n - 1)
+      return s;  
+      StringBuilder sb = new StringBuilder();
+      int freq = 0;
+      int i = 0;
+      for(int j = 0; i < s.length() && j < s.length(); ){
+          if(s.charAt(i) != s.charAt(j)){
+              sb.append(freq);
+              sb.append(s.charAt(i));
+              freq = 0;
+              i = j;
+          }else{
+            freq++;
+            j++;
+          }
+        }
+        sb.append(freq);
+        sb.append(s.charAt(i));
+        return helper(idx + 1, n, sb.toString());
+    }
+}
