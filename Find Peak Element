@@ -1,0 +1,30 @@
+class Solution {
+	public int findPeakElement(int[] arr) {
+		int low=0;
+		int high=arr.length-1;
+		if(arr.length>1 && arr[low]>arr[low+1] || arr.length==1)
+		{
+			return low;
+		}
+		if(arr.length>1 && arr[high]>arr[high-1]){
+			return high;
+		}
+
+		while(low<high)
+		{
+			int  mid=(high-low)/2+low;
+				if(arr[mid]>arr[mid-1] && arr[mid]>arr[mid+1])
+				{
+					return mid;
+				}
+				else if(arr[mid]<arr[mid+1])
+				{
+					low=mid+1;
+				}
+				else{
+					high=mid;
+				}
+		}
+ return low;
+	}
+}
