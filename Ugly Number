@@ -1,0 +1,59 @@
+class Solution {
+    public boolean isUgly(int n) { 
+
+        int c1=0,c2=0,c3=0;
+        int temp1=n;
+        int temp2=temp1;
+        int temp3= temp1;
+        if(n==1)
+        {
+            return true;
+        }
+        if(n==0)
+        {
+            return false;
+        }
+        while(true)
+        {
+            if((temp1%2)!=0)
+            {
+                break;
+            }
+            c1+=1;
+            temp1/=2;
+        }
+         while(true)
+        {
+            if((temp2%3)!=0)
+            {
+                break;
+            }
+            c2+=1;
+            temp2/=3;
+        }
+         while(true)
+        {
+            if((temp3%5)!=0)
+            {
+                break;
+            }
+            c3+=1;
+            temp3/=5;
+        }
+
+        int result=(int)Math.pow(5, c3)*(int)Math.pow(3, c2)*(int)Math.pow(2, c1);       
+       if(n>0)
+       {
+           if(result<n)
+           {
+               return false;
+           }
+           else{
+               return true;
+           }
+       }
+       else{
+           return false;
+       }
+    }
+}
