@@ -1,0 +1,19 @@
+class Solution {
+    public int findComplement(int num) {
+        String bit=Integer.toBinaryString(num);
+        bit=bit.replaceFirst("^0+(?!$)", "");
+        String res="";
+        for(char ch:bit.toCharArray())
+        {
+            if(ch=='1')
+            {
+                res+='0';
+            }
+            else
+            {
+                res+='1';
+            }
+        }
+        return Integer.parseInt(res,2);
+    }
+}
