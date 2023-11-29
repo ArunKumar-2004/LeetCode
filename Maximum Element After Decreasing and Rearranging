@@ -1,0 +1,11 @@
+class Solution {
+    public int maximumElementAfterDecrementingAndRearranging(int[] arr) {
+        int len = arr.length, res = 1;
+        int[] cnt = new int[len];
+
+        for(int num : arr) ++cnt[Math.min(num-1,len-1)];
+        for (int i = 1; i < len; i++) res = Math.min(i+1, res+cnt[i]);
+        
+        return res;
+    }
+}
