@@ -1,0 +1,19 @@
+import java.math.*;
+class Solution {
+    public int[] plusOne(int[] digits) {
+        String sum="";
+        for(int i=0;i<digits.length;i++)
+        {
+            sum=sum+digits[i];
+        }
+        BigInteger x = new BigInteger(sum);
+        x = x.add(BigInteger.ONE);
+        String st = x.toString();
+        int arr[]=new int[st.length()];
+        for(int i=0;i<st.length();i++)
+        {
+            arr[i]=Character.getNumericValue(st.charAt(i));
+        }
+        return arr;
+    }
+}
