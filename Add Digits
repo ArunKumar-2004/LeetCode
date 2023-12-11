@@ -1,0 +1,20 @@
+class Solution {
+    public int addDigits(int num) {
+        int digit=calculateDigit(Integer.toString(num));
+        return digit;
+    }
+    public int calculateDigit(String num)
+    {
+        if(num.length()==1)
+        {
+            return Integer.parseInt(num);
+        }
+        int sum=0;
+        for(char p:num.toCharArray())
+        {
+            int n=p-'0';
+            sum+=n;
+        }
+        return calculateDigit(Integer.toString(sum));
+    }
+}
