@@ -1,0 +1,28 @@
+class Solution {
+    public List<Integer> getRow(int rowIndex) {
+        int arr[][]=new int[rowIndex+1][rowIndex+1];
+        List<Integer> li=new ArrayList<>();
+        for(int i=0;i<=rowIndex;i++){
+            for(int j=0;j<rowIndex+1;j++){
+                if(j==0 || i==j){
+                    arr[i][j]=1;
+                }
+            }
+        }
+        for(int i=2;i<rowIndex+1;i++){
+            for(int j=0;j<=i;j++){
+                if(arr[i][j]==1){
+                    continue;
+                }else{
+                    arr[i][j]=arr[i-1][j-1]+arr[i-1][j];
+                }
+            }
+        }
+        for(int i=rowIndex;i<=rowIndex;i++){
+            for(int j=0;j<=i;j++){
+                li.add(arr[i][j]);
+            }
+        }
+        return li;
+    }
+}
