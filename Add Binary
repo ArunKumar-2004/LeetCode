@@ -1,0 +1,10 @@
+import java.math.BigInteger;
+
+class Solution {
+    public String addBinary(String a, String b) {
+        BigInteger decimalNum = new BigInteger(a, 2);
+        BigInteger decimalNumber = new BigInteger(b, 2);
+        BigInteger sum = decimalNum.add(decimalNumber);
+        return sum.toString(2);
+    }
+}
