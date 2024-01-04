@@ -1,3 +1,4 @@
+import java.util.HashMap;
 class Solution {
     public int minOperations(int[] nums) {
         HashMap<Integer,Integer> map=new HashMap<>();
