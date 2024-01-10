@@ -15,25 +15,22 @@ class Solution {
         }
         for(int i=0;i<nums.length;i++){
             count=0;
-            if(nums[i]==0){
-                int val=li.remove(i);
-                count=FindOne(li,i);
-                li.add(i,val);
+            int c=0;
+            if(nums[i]==1){
+                for(int j=i;j<nums.length;j++){
+                    if(j<nums.length-1 && nums[j]==0 && nums[j+1]==0){
+                        break;
+                    }else if(nums[j]==0){
+                        c++;
+                        if(c==2){
+                            break;
+                        }
+                        continue;
+                    }
+                    count++;
+                }
             }
             max=Math.max(max,count);
-        }
-        return max;
-    }
-    public int FindOne(List<Integer> li,int start){
-        int c=0;
-        int max=0;
-        for(int i=0;i<li.size();i++){
-            if(li.get(i)==1){
-                c++;
-                max=Math.max(max,c);
-            }else{
-                c=0;
-            }
         }
         return max;
     }
