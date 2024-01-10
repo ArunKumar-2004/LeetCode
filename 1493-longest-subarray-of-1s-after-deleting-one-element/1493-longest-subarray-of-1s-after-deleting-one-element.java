@@ -13,24 +13,20 @@ class Solution {
         for(int i:nums){
             li.add(i);
         }
-        for(int i=0;i<nums.length;i++){
-            count=0;
-            int c=0;
-            if(nums[i]==1){
-                for(int j=i;j<nums.length;j++){
-                    if(j<nums.length-1 && nums[j]==0 && nums[j+1]==0){
-                        break;
-                    }else if(nums[j]==0){
-                        c++;
-                        if(c==2){
-                            break;
-                        }
-                        continue;
+        for(int i=0; i<nums.length;i++){
+            if(nums[i]==0){
+                li.remove(i);
+                count=0;
+                for(int j=0;j<li.size();j++) {
+                    if(li.get(j)==1) {
+                        count++;
+                        max=Math.max(max, count);
+                    }else{
+                        count=0;
                     }
-                    count++;
                 }
+                li.add(i,0);
             }
-            max=Math.max(max,count);
         }
         return max;
     }
