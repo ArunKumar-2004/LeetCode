@@ -17,7 +17,7 @@ class Solution {
             if(nums[i]==0){
                 li.remove(i);
                 count=0;
-                for(int j=0;j<li.size();j++) {
+                for(int j=li.indexOf(1);j<li.size();j++) {
                     if(li.get(j)==1) {
                         count++;
                         max=Math.max(max, count);
