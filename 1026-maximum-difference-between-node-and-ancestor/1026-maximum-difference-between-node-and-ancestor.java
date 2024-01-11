@@ -29,10 +29,8 @@ class Solution {
         }
         curr=root.val;
         Helper(root,curr);
-        if(root.left!=null)
-            maxAncestorDiff(root.left);
-        if(root.right!=null)
-            maxAncestorDiff(root.right);
+        maxAncestorDiff(root.left);
+        maxAncestorDiff(root.right);
         return max;
     }
 }
