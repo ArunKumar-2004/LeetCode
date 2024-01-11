@@ -19,9 +19,15 @@ class Solution {
         if(root==null){
             return;
         }
-        max=Math.max(max,Math.abs(root.val-curr));
+        int n=Abs(curr,root.val);
+        if(max<n){
+            max=n;
+        }
         Helper(root.left,curr);
         Helper(root.right,curr);
+    }
+    public int Abs(int a,int b){
+        return (a>b)?a-b:b-a;
     }
     public int maxAncestorDiff(TreeNode root) {
         if(root==null){
