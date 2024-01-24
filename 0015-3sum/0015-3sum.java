@@ -12,9 +12,9 @@ class Solution {
                 int curr=nums[i]+nums[j];
                 if(map.containsKey(-1*curr)){
                     int k=map.get(-1*curr);
-                    String st=nums[i]+":"+nums[j]+":"+-1*curr;
+                    String st=nums[i]+":"+nums[j]+":"+nums[k];
                     if(!set.contains(st) && i<k && j<k){
-                        li.add(Arrays.asList(nums[i], nums[j], -1*curr));
+                        li.add(Arrays.asList(nums[i], nums[j], nums[k]));
                         set.add(st);
                     }
                 }
