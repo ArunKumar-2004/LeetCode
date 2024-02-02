@@ -10,7 +10,7 @@ class Solution {
         }
         for(int i=0;i<grid.length;i++){
             for(int j=0;j<grid[0].length;j++){
-                grid[i][j]=(row[i]+col[j])-(grid.length-row[i])-(grid[0].length-col[j]);
+                grid[i][j]=(2*(row[i]+col[j]))-grid.length-grid[0].length;
             }
         }
         return grid;
